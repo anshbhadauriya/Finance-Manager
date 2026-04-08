@@ -10,14 +10,14 @@ import com.example.financemanager.databinding.ItemTransactionBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-// ListAdapter is smarter than basic RecyclerView.Adapter — it diffs lists automatically
+
 class TransactionAdapter(
     private val onLongClick: (Transaction) -> Unit
 ) : ListAdapter<Transaction, TransactionAdapter.ViewHolder>(DiffCallback()) {
 
     private val dateFormat = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
 
-    // Category → emoji mapping for visual flair
+
     private val categoryEmoji = mapOf(
         "Food" to "🍔", "Transport" to "🚗", "Shopping" to "🛍️",
         "Health" to "💊", "Entertainment" to "🎬", "Salary" to "💼",
@@ -44,7 +44,7 @@ class TransactionAdapter(
             binding.tvDate.text = dateFormat.format(Date(transaction.date))
             binding.tvCategoryIcon.text = categoryEmoji[transaction.category] ?: "💰"
 
-            // Green for income, red for expense
+
             if (transaction.type == "INCOME") {
                 binding.tvAmount.text = "+ ₹%.2f".format(transaction.amount)
                 binding.tvAmount.setTextColor(
@@ -57,7 +57,7 @@ class TransactionAdapter(
                 )
             }
 
-            // Long press to delete
+
             binding.root.setOnLongClickListener {
                 onLongClick(transaction)
                 true
@@ -65,7 +65,6 @@ class TransactionAdapter(
         }
     }
 
-    // DiffCallback tells RecyclerView exactly what changed — avoids full redraws
     class DiffCallback : DiffUtil.ItemCallback<Transaction>() {
         override fun areItemsTheSame(old: Transaction, new: Transaction) = old.id == new.id
         override fun areContentsTheSame(old: Transaction, new: Transaction) = old == new

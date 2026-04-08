@@ -13,7 +13,7 @@ import com.example.financemanager.viewmodel.TransactionViewModel
 
 class HomeFragment : Fragment() {
 
-    // activityViewModels() shares ONE ViewModel across all fragments
+
     private val viewModel: TransactionViewModel by activityViewModels()
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
 
     private fun setupRecyclerView() {
         val adapter = TransactionAdapter { transaction ->
-            // Long press = show delete confirmation
+
             AlertDialog.Builder(requireContext())
                 .setTitle("Delete Transaction")
                 .setMessage("Delete this ${transaction.category} entry of ₹${transaction.amount}?")
@@ -52,13 +52,13 @@ class HomeFragment : Fragment() {
     }
 
     private fun observeData() {
-        // Observe income
+
         viewModel.totalIncome.observe(viewLifecycleOwner) { income ->
             binding.tvIncomeSmall.text = "₹%.0f".format(income)
             updateBalance()
         }
 
-        // Observe expense
+
         viewModel.totalExpense.observe(viewLifecycleOwner) { expense ->
             binding.tvExpenseSmall.text = "₹%.0f".format(expense)
             updateBalance()
@@ -72,7 +72,7 @@ class HomeFragment : Fragment() {
         binding.tvBalance.text = "₹%.2f".format(balance)
     }
 
-    // IMPORTANT: Always null the binding to avoid memory leaks
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

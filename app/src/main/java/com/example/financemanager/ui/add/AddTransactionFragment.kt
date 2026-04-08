@@ -40,7 +40,7 @@ class AddTransactionFragment : Fragment() {
         setupDatePicker()
         setupSaveButton()
 
-        // Set today's date by default
+
         binding.etDate.setText(dateFormat.format(Date(selectedDateMillis)))
     }
 
@@ -60,7 +60,7 @@ class AddTransactionFragment : Fragment() {
             binding.etDate.setText(dateFormat.format(Date(selection)))
         }
 
-        // Open picker when user taps the date field
+
         binding.etDate.setOnClickListener {
             if (!datePicker.isAdded) {
                 datePicker.show(parentFragmentManager, "date_picker")
@@ -103,7 +103,7 @@ class AddTransactionFragment : Fragment() {
     }
 
     private fun saveTransaction() {
-        // Determine type from toggle button
+
         val type = if (binding.toggleType.checkedButtonId == binding.btnIncome.id) "INCOME" else "EXPENSE"
 
         val transaction = Transaction(

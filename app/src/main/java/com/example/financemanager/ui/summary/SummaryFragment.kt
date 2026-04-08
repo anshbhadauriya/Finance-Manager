@@ -43,7 +43,7 @@ class SummaryFragment : Fragment() {
         val balance = income - expense
         binding.tvNetBalance.text = "₹%.2f".format(balance)
 
-        // Color the balance green/red based on positive/negative
+
         val color = if (balance >= 0)
             requireContext().getColor(com.example.financemanager.R.color.accent_green)
         else

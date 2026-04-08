@@ -11,6 +11,6 @@ data class Transaction(
     val amount: Double,
     val category: String,
     val note: String,
-    val date: Long,           // Store as milliseconds (easy to sort & format)
-    val type: String          // "INCOME" or "EXPENSE"
+    val date: Long,
+    val type: String
 )
