@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.financemanager.ui.home.HomeFragment"
+        android:label="Home"/>
+
+    <fragment
+        android:id="@+id/addTransactionFragment"
+        android:name="com.example.financemanager.ui.add.AddTransactionFragment"
+        android:label="Add"/>
+
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.example.financemanager.ui.summary.SummaryFragment"
+        android:label="Summary"/>
+
+</navigation>
