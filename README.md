@@ -107,7 +107,7 @@ res/
 
 ## 📦 APK
 
-🔗 Add APK download link here
+https://finance-manager-tuf.netlify.app/
 
 ---
 
