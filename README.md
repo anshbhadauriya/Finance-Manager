@@ -99,9 +99,7 @@ res/
 
 ---
 
-## 🎥 Demo Video
 
-🔗 https://youtu.be/GzpF925QJNI
 
 ---
 
